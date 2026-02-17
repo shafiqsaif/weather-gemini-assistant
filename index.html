@@ -3,26 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Gemini Assistant - Group 25</title>
+    <title>AI Weather & Lifestyle Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Weather Gemini Assistant</h1>
-    </header>
 
-    <main>
-        <div id="search-container">
-            <input type="text" id="cityInput" placeholder="Enter city (e.g., Oulu)...">
-            <button id="searchBtn">Test Connection</button>
+<div class="container py-4">
+    <div class="text-center mb-4 text-white text-shadow">
+        <h1 class="display-5 fw-bold"><i class="bi bi-cloud-sun"></i> AI Weather Assistant</h1>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-8 col-lg-6">
+            <div class="input-group input-group-lg shadow-lg search-bar-container">
+                <span class="input-group-text bg-white border-0"><i class="bi bi-geo-alt-fill text-primary"></i></span>
+                <input type="text" id="cityInput" class="form-control border-0" placeholder="Enter city worldwide...">
+                <button id="searchBtn" class="btn btn-primary px-4 fw-bold">Analyze</button>
+            </div>
         </div>
+    </div>
 
-        <div id="output">
-            <p>Ready to initialize APIs...</p>
+    <div id="appNav" class="d-none mb-4">
+        <ul class="nav nav-pills justify-content-center gap-2">
+            <li class="nav-item">
+                <button class="nav-link active fw-bold px-4 rounded-pill" onclick="switchPage('weather', this)">Current Details</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link text-white fw-bold px-4 rounded-pill glass-card" onclick="switchPage('ai', this)">Groq AI Advice</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link text-white fw-bold px-4 rounded-pill glass-card" onclick="switchPage('forecast', this)">3-Day Forecast</button>
+            </li>
+        </ul>
+    </div>
+
+    <div id="loadingIndicator" class="text-center d-none my-5 text-white">
+        <div class="spinner-grow text-light" role="status" style="width: 3rem; height: 3rem;"></div>
+        <h4 class="mt-3 fw-light">Analyzing atmospheric data & generating AI insights...</h4>
+    </div>
+    <div id="errorDisplay" class="alert alert-danger d-none text-center shadow" role="alert"></div>
+
+    <div id="page-weather" class="page-view d-none animate-fade-in">
+        <div class="row justify-content-center g-4">
+            <div class="col-lg-5">
+                <div class="card glass-card h-100 border-0 shadow-lg text-white">
+                    <div class="card-body p-4 text-center">
+                        <h2 id="cityNameDisplay" class="display-5 fw-bold mb-0">--</h2>
+                        <p id="localTimeDisplay" class="text-warning fw-bold mt-1 mb-3"><i class="bi bi-clock"></i> --</p>
+                        
+                        <h1 id="tempDisplay" class="display-1 fw-bolder mb-0 mt-3">--°C</h1>
+                        <p class="h4 text-capitalize mt-2" id="conditionDisplay">--</p>
+                        
+                        <p class="mb-0 fs-5 mt-3">H: <strong id="highTempDisplay">--°C</strong> &nbsp;|&nbsp; L: <strong id="lowTempDisplay">--°C</strong></p>
+                        <p class="mb-0 fs-5 mt-3 border-top border-light border-opacity-25 pt-3">Feels like: <strong id="feelsLikeDisplay">--°C</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-7">
+                <div class="row g-3">
+                    <div class="col-sm-6 col-md-3"><div class="card glass-card-dark text-center p-3 h-100"><h6 class="text-white-50"><i class="bi bi-droplet"></i> Humidity</h6><h4 id="humidityDisplay" class="text-white mb-0">--%</h4></div></div>
+                    <div class="col-sm-6 col-md-3"><div class="card glass-card-dark text-center p-3 h-100"><h6 class="text-white-50"><i class="bi bi-wind"></i> Wind</h6><h4 id="windDisplay" class="text-white mb-0">-- m/s</h4></div></div>
+                    <div class="col-sm-6 col-md-3"><div class="card glass-card-dark text-center p-3 h-100"><h6 class="text-white-50"><i class="bi bi-speedometer2"></i> Pressure</h6><h4 id="pressureDisplay" class="text-white mb-0">-- hPa</h4></div></div>
+                    <div class="col-sm-6 col-md-3"><div class="card glass-card-dark text-center p-3 h-100"><h6 class="text-white-50"><i class="bi bi-eye"></i> Visibility</h6><h4 id="visibilityDisplay" class="text-white mb-0">-- km</h4></div></div>
+                    
+                    <div class="col-sm-6 col-md-3"><div class="card glass-card-dark text-center p-3 h-100"><h6 class="text-white-50"><i class="bi bi-sunrise"></i> Sunrise</h6><h5 id="sunriseDisplay" class="text-white mb-0">--</h5></div></div>
+                    <div class="col-sm-6 col-md-3"><div class="card glass-card-dark text-center p-3 h-100"><h6 class="text-white-50"><i class="bi bi-sunset"></i> Sunset</h6><h5 id="sunsetDisplay" class="text-white mb-0">--</h5></div></div>
+                    <div class="col-sm-6 col-md-3"><div class="card glass-card-dark text-center p-3 h-100"><h6 class="text-white-50"><i class="bi bi-clouds"></i> Clouds</h6><h4 id="cloudDisplay" class="text-white mb-0">--%</h4></div></div>
+                    <div class="col-sm-6 col-md-3"><div class="card glass-card-dark text-center p-3 h-100"><h6 class="text-white-50"><i class="bi bi-lungs"></i> AQI</h6><h5 id="aqiDisplay" class="text-white mb-0">--</h5></div></div>
+                </div>
+            </div>
         </div>
-    </main>
+    </div>
 
-    <script src="config.js"></script>
-    <script src="script.js"></script>
+    <div id="page-ai" class="page-view d-none animate-fade-in">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card glass-card-primary border-0 shadow-lg">
+                    <div class="card-body p-5">
+                        <h3 class="card-title text-white fw-bold border-bottom border-light border-opacity-25 pb-3 mb-4">
+                            <i class="bi bi-stars text-warning"></i> Lifestyle Insights by Meta LLaMA 3.1
+                        </h3>
+                        <div id="aiSummaryDisplay" class="text-white fs-4" style="line-height: 1.8;">
+                            <div class="spinner-border text-light" role="status"></div> Waiting for weather data...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-forecast" class="page-view d-none animate-fade-in">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h3 class="text-white border-bottom border-light border-opacity-25 pb-2 mb-4"><i class="bi bi-calendar3"></i> Your 3-Day Lookahead</h3>
+                <div class="row g-4" id="forecastContainer">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

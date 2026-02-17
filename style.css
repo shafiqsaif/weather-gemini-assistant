@@ -1,15 +1,114 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 500px;
     text-align: center;
-    background-color: #f0f2f5;
-    margin-top: 50px;
 }
 
-#search-container {
-    margin: 20px;
+header h1 {
+    color: #333;
+    margin-bottom: 5px;
 }
 
-input, button {
+header p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Search Box Styling */
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
     padding: 10px;
-    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Result Cards */
+.result-card, .ai-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    text-align: left;
+    border-left: 5px solid #007bff;
+}
+
+.ai-card {
+    border-left: 5px solid #8e44ad; /* Purple for AI */
+    background: #fdfeff;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Footer / Student Info Styling */
+footer {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.student-info h4 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.student-info ul {
+    list-style: none;
+}
+
+.student-info li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* Mobile responsive tweak for names */
+@media (max-width: 400px) {
+    .student-info li {
+        display: block;
+    }
 }
