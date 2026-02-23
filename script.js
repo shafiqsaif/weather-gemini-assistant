@@ -140,7 +140,6 @@ function populateForecastUI(forecastData) {
 
 
 // ANKIT'S PART: AI & ERROR HANDLING
-// Sending data to Groq AI
 async function fetchAIInsights(weatherData, aqiData) {
     const aqiLabels = ["", "Excellent", "Fair", "Moderate", "Poor", "Hazardous"];
     const aqiText = aqiLabels[aqiData.list[0].main.aqi] || "Unknown";
