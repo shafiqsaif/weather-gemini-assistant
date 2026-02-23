@@ -1,4 +1,3 @@
-// SHAFIQ'S PART: WEATHER ENGINE & UI
 // Selecting elements from HTML
 const cityInput = document.getElementById('cityInput');
 const searchBtn = document.getElementById('searchBtn');
@@ -139,7 +138,6 @@ function populateForecastUI(forecastData) {
 }
 
 
-// ANKIT'S PART: AI & ERROR HANDLING
 async function fetchAIInsights(weatherData, aqiData) {
     const aqiLabels = ["", "Excellent", "Fair", "Moderate", "Poor", "Hazardous"];
     const aqiText = aqiLabels[aqiData.list[0].main.aqi] || "Unknown";
