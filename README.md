@@ -1,21 +1,78 @@
-# Weather & Lifestyle App (Team 25)
+# 🌦️ Weather & Lifestyle App (Team 25)
 
-### About Our Project
-This is our final Capstone Project for the semester. We built a weather dashboard that doesn't just show you the temperature—it actually tells you what to do with that information using AI.
+> **Capstone Project — Deepening of Skills course**  
+> An AI-powered weather assistant that turns real weather data into practical daily advice.
 
-We used HTML, CSS (Bootstrap), and JavaScript to build it. The app pulls real-time weather data and then sends it to an AI model to generate advice like what to wear or what to pack.
+---
 
-### Key Features
-* **3-Page Design:** You can switch between current weather, the AI advice, and the 3-day forecast without the page reloading.
-* **Real Weather Data:** We fetch live data for temperature, humidity, wind, and sunrise/sunset times using the OpenWeather API.
-* **Air Quality:** We also added a feature to check pollution levels (AQI) so you know if it's safe to go outside.
-* **AI Integration:** We connected the app to Meta's LLaMA 3.1 AI. It reads the weather and gives you a custom packing list and activity suggestions.
-* **Modern UI:** Tabish designed a "Glassmorphism" look using semi-transparent cards.
+## 📌 About Our Project
 
-### How to Run It
-1. Download or clone this folder.
-2. Create a new file called `config.js` in the main folder.
-3. Paste your API keys inside it like this:
-   ```javascript
-   const OPENWEATHER_KEY = "paste_key_here";
-   const GROQ_KEY = "paste_key_here";
+We designed and implemented an **AI-powered Weather & Lifestyle Assistant** that goes beyond displaying raw weather data.  
+The application combines **real-time atmospheric information** with **AI-generated recommendations** to help users make practical daily decisions.
+
+Instead of simply showing temperature values, the system interprets weather conditions and provides contextual lifestyle advice such as:
+
+- 👕 What to wear  
+- 🎯 What activity is ideal  
+- 🎒 What essentials to carry  
+
+---
+
+## 🎯 Project Objectives
+
+The primary goals of this project were to:
+
+- ✅ Practice real-world API integration  
+- ✅ Explore AI usage in web applications  
+- ✅ Strengthen frontend architecture skills  
+- ✅ Improve asynchronous JavaScript handling  
+
+---
+
+## 🧰 Technologies Used
+
+### Frontend
+- **HTML**
+- **CSS**
+- **Bootstrap 5**
+
+### Programming Logic
+- **Vanilla JavaScript**
+
+### External Services & APIs
+- **OpenWeather API** (current weather + forecast)
+- **OpenWeather Air Pollution API** (AQI)
+- **Groq API** (Meta **LLaMA 3.1** model)
+
+---
+
+## 👥 Team Contributions
+
+| Member | Responsibilities |
+|--------|------------------|
+| **Tabish Dawood** | Frontend UI design (HTML/CSS), Bootstrap layout, Glassmorphism styling, page structure |
+| **Shafiq** | Weather engine & API integration (Weather + Forecast + AQI), async fetching, UI data population, navigation logic |
+| **Ankit** | AI integration via Groq (LLaMA 3.1), prompt formatting, timeout handling, sanitization, AI error handling, Maintaining Readme |
+
+---
+
+## ✨ Key Features
+
+- 🔄 **Multi-page UI** without reload  
+- 🌍 **Live weather** data for cities worldwide  
+- 🌫️ **Air Quality Index (AQI)** display  
+- 📅 **3-day forecast** visualization  
+- 🤖 **AI-generated lifestyle insights** (wardrobe, activity, packing list)  
+- 📱 Responsive modern interface  
+
+---
+
+## ▶️ How to Run the Application
+
+1. **Download or clone** the project folder  
+2. Create a file named **`config.js`** in the root directory  
+3. Insert your API keys:
+
+```javascript (config.js)
+const OPENWEATHER_KEY = "paste_key_here";
+const GROQ_KEY = "paste_key_here";
