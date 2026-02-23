@@ -1,0 +1,25 @@
+{
+  "name": "weather-gemini-assistant",
+  "version": "1.0.0",
+  "description": "> **Capstone Project — Deepening of Skills course**  \r > An AI-powered weather assistant that turns real weather data into practical daily advice.",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shafiqsaif/weather-gemini-assistant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shafiqsaif/weather-gemini-assistant/issues"
+  },
+  "homepage": "https://github.com/shafiqsaif/weather-gemini-assistant#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "node-fetch": "^3.3.2"
+  }
+}
