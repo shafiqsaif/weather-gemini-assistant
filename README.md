@@ -52,7 +52,7 @@ The primary goals of this project were to:
 |--------|------------------|
 | **Tabish Dawood** | Frontend UI design (HTML/CSS), Bootstrap layout, Glassmorphism styling, page structure |
 | **Shafiq** | Weather engine & API integration, async fetching, UI data population, navigation logic |
-| **Ankit** | AI integration via Groq (LLaMA 3.1), prompt formatting, timeout handling, sanitization, AI error handling, Maintaining Readme |
+| **Ankit** | AI integration via Groq (LLaMA 3.1), prompt formatting, timeout handling, sanitization, AI error handling, Updating Readme |
 
 ---
 
