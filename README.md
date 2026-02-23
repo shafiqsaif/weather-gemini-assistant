@@ -50,7 +50,7 @@ The primary goals of this project were to:
 
 | Member | Responsibilities |
 |--------|------------------|
-| **Tabish Dawood** | Frontend UI design (HTML/CSS), Bootstrap layout, Glassmorphism styling, page structure |
+| **Tabish Dawood** | Frontend UI design (HTML/CSS), Bootstrap layout, Glassmorphism styling, page structure, WebApp-Deployment |
 | **Shafiq** | Weather engine & API integration, async fetching, UI data population, navigation logic |
 | **Ankit** | AI integration via Groq (LLaMA 3.1), prompt formatting, timeout handling, sanitization, AI error handling, Updating Readme |
 
@@ -69,10 +69,4 @@ The primary goals of this project were to:
 
 ## ▶️ How to Run the Application
 
-1. **Download or clone** the project folder  
-2. Create a file named **`config.js`** in the root directory  
-3. Insert your API keys:
-
-```javascript
-const OPENWEATHER_KEY = "paste_key_here";
-const AI_KEY = "paste_key_here";
+click on this https://weather-gemini-assistant.onrender.com/

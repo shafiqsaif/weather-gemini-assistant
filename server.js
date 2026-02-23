@@ -1,10 +1,9 @@
 const express = require("express");
-// const fetch = require("node-fetch");
 const path = require("path");
 
 const app = express();
 app.use(express.json());
-app.use(express.static(__dirname)); // serve index.html & assets
+app.use(express.static(__dirname)); 
 
 const OPENWEATHER_KEY = process.env.OPENWEATHER_KEY;
 const GROQ_KEY = process.env.GROQ_KEY;
