@@ -51,7 +51,7 @@ The primary goals of this project were to:
 | Member | Responsibilities |
 |--------|------------------|
 | **Tabish Dawood** | Frontend UI design (HTML/CSS), Bootstrap layout, Glassmorphism styling, page structure |
-| **Shafiq** | Weather engine & API integration (Weather + Forecast + AQI), async fetching, UI data population, navigation logic |
+| **Shafiq** | Weather engine & API integration, async fetching, UI data population, navigation logic |
 | **Ankit** | AI integration via Groq (LLaMA 3.1), prompt formatting, timeout handling, sanitization, AI error handling, Maintaining Readme |
 
 ---
@@ -73,6 +73,6 @@ The primary goals of this project were to:
 2. Create a file named **`config.js`** in the root directory  
 3. Insert your API keys:
 
-```javascript (config.js)
+```javascript
 const OPENWEATHER_KEY = "paste_key_here";
-const GROQ_KEY = "paste_key_here";
+const AI_KEY = "paste_key_here";
