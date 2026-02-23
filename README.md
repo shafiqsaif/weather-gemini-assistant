@@ -9,7 +9,7 @@ We used HTML, CSS (Bootstrap), and JavaScript to build it. The app pulls real-ti
 * **3-Page Design:** You can switch between current weather, the AI advice, and the 3-day forecast without the page reloading.
 * **Real Weather Data:** We fetch live data for temperature, humidity, wind, and sunrise/sunset times using the OpenWeather API.
 * **Air Quality:** We also added a feature to check pollution levels (AQI) so you know if it's safe to go outside.
-* **AI Integration:** We connected the app to Meta's LLaMA 3.1 AI. It reads the weather and gives you a custom packing list and activity suggestions.
+* **AI Integration:** We connected the app to AI. It reads the weather and gives you a custom packing list and activity suggestions.
 * **Modern UI:** Tabish designed a "Glassmorphism" look using semi-transparent cards.
 
 ### How to Run It
@@ -18,4 +18,4 @@ We used HTML, CSS (Bootstrap), and JavaScript to build it. The app pulls real-ti
 3. Paste your API keys inside it like this:
    ```javascript
    const OPENWEATHER_KEY = "paste_key_here";
-   const GROQ_KEY = "paste_key_here";
+   const Ai_KEY = "paste_key_here";
